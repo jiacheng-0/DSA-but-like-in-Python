@@ -28,7 +28,8 @@ class AVL_Tree(object):
 
         # Step 2 - Update the height of the
         # ancestor node
-        root.height = 1 + max(self.getHeight(root.left), self.getHeight(root.right))
+        root.height = 1 + max(self.getHeight(root.left),
+                              self.getHeight(root.right))
 
         # Step 3 - Get the balance factor
         balance = self.getBalance(root)
@@ -107,45 +108,46 @@ class AVL_Tree(object):
         print("{0} ".format(root.val), end="")
         self.preOrder(root.left)
         self.preOrder(root.right)
-    
+
     def inOrder(self, root):
 
         if not root:
             return
-        
+
         self.inOrder(root.left)
         print("{0}".format(root.val), end=" ")
         self.inOrder(root.right)
 
 
-# Driver program to test above function
-myTree = AVL_Tree()
-root = None
+if __name__ == "__main__":
 
-root = myTree.insert(root, 10)
-root = myTree.insert(root, 20)
-root = myTree.insert(root, 30)
-root = myTree.insert(root, 40)
-root = myTree.insert(root, 50)
-root = myTree.insert(root, 25)
+    # Driver program to test above function
+    myTree = AVL_Tree()
+    root = None
 
-"""The constructed AVL Tree would be 
-            30 
-           /  \ 
-         20   40 
-        /  \     \ 
-       10  25    50"""
+    root = myTree.insert(root, 10)
+    root = myTree.insert(root, 20)
+    root = myTree.insert(root, 30)
+    root = myTree.insert(root, 40)
+    root = myTree.insert(root, 50)
+    root = myTree.insert(root, 25)
 
-# Preorder Traversal
-# print("Preorder traversal of the", "constructed AVL tree is")
-# myTree.preOrder(root)
-# print()
+    """The constructed AVL Tree would be 
+                30 
+            /  \ 
+            20   40 
+            /  \     \ 
+        10  25    50"""
 
-# Inorder Traversal
-print("Inorder traversal of the", "constructed AVL tree is")
-myTree.inOrder(root)
-print()
+    # Preorder Traversal
+    # print("Preorder traversal of the", "constructed AVL tree is")
+    # myTree.preOrder(root)
+    # print()
+
+    # Inorder Traversal
+    print("Inorder traversal of the", "constructed AVL tree is")
+    myTree.inOrder(root)
+    print()
 
 
 # This code is contributed by Ajitesh Pathak
-
